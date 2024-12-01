@@ -20,14 +20,19 @@ export default function App() {
       {isOpen && (
         <div className="steps">
           <Numbers step={step} setStep={setStep} />
-
-          <p className="message">
-            Step {step}: {messages[step - 1]}
-          </p>
-
+          <StepMessage step={step}>{messages[step - 1]}</StepMessage>
           <Buttons step={step} setStep={setStep} />
         </div>
       )}
     </>
+  );
+}
+
+function StepMessage({ step, children }) {
+  return (
+    <div className="message">
+      <h3>Step {step}</h3>
+      {children}
+    </div>
   );
 }
